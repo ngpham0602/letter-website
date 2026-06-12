@@ -150,8 +150,13 @@ body {
 }
 @keyframes breathe { 0%,100% { opacity: 0.42; } 50% { opacity: 1; } }
 
-/* heart accents */
-.hk { font-style: normal; color: var(--rose-deep); }
+/* heart accents — force clean text rendering (never colour-emoji) */
+.hk {
+  font-style: normal;
+  color: var(--rose-deep);
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", system-ui, sans-serif;
+  font-variant-emoji: text; /* modern browsers: keep ♥ as text glyph */
+}
 .hk--lg { font-size: 0.7em; vertical-align: 0.12em; }
 
 /* --- envelope body --- */

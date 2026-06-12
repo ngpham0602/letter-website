@@ -4,44 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Letter For You</title>
+  <meta name="description" content="A calming interactive letter — click the wax seal to open." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital@0;1&family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- soft floating ambient blobs -->
-  <div class="ambient">
-    <span class="blob blob--1"></span>
-    <span class="blob blob--2"></span>
-    <span class="blob blob--3"></span>
+  <!-- layered, calming backdrop -->
+  <div class="bg" aria-hidden="true">
+    <div class="bg__mesh"></div>
+    <div class="bg__grain"></div>
+    <div class="motes" id="motes"></div>
   </div>
 
-  <main class="stage">
-    <p class="hint" id="hint">Tap the envelope to open</p>
+  <!-- focal point: the envelope -->
+  <main class="scene">
+    <button class="envelope" id="envelope" aria-label="Open the letter">
+      <span class="envelope__label">A letter awaits you</span>
 
-    <!-- The envelope + letter -->
-    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the letter">
-      <div class="envelope__back"></div>
+      <span class="env">
+        <span class="env__back"></span>
+        <span class="env__peek"></span>
+        <span class="env__front"></span>
+        <span class="env__flap"></span>
+        <span class="seal">
+          <span class="seal__mark">&#10084;</span>
+        </span>
+      </span>
 
-      <!-- the letter slides up out of the envelope -->
-      <div class="letter" id="letter">
-        <div class="letter__content">
-          <h1 class="letter__title">Hello World</h1>
-          <div class="letter__divider">✦</div>
-          <p class="letter__body">
-            Thank you for opening this little letter.
-            May your day be calm, your mind be quiet,
-            and your heart be light.
-          </p>
-          <p class="letter__sign">— with warmth</p>
-        </div>
-      </div>
-
-      <div class="envelope__front"></div>
-      <div class="envelope__flap" id="flap"></div>
-    </div>
+      <span class="envelope__cta">click the seal to open</span>
+    </button>
   </main>
+
+  <!-- reading view: guarantees perfect centering at any size -->
+  <div class="reader" id="reader" aria-hidden="true">
+    <div class="reader__backdrop" id="backdrop"></div>
+
+    <article class="card" role="dialog" aria-modal="true" aria-labelledby="card-title">
+      <button class="card__close" id="close" aria-label="Close letter">&#215;</button>
+
+      <div class="card__inner">
+        <p class="r r--1 eyebrow">For you</p>
+        <h1 class="r r--2 title" id="card-title">Hello World</h1>
+        <div class="r r--3 rule"><span></span><i>&#10022;</i><span></span></div>
+        <p class="r r--4 body">Thank you for opening this little letter.</p>
+        <p class="r r--5 body">May your day be calm, your mind be quiet, and your heart feel light.</p>
+        <p class="r r--6 sign">with warmth</p>
+      </div>
+    </article>
+  </div>
 
   <script src="script.js"></script>
 </body>

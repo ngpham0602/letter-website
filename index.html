@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter For You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- soft floating ambient blobs -->
+  <div class="ambient">
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="blob blob--3"></span>
+  </div>
+
+  <main class="stage">
+    <p class="hint" id="hint">Tap the envelope to open</p>
+
+    <!-- The envelope + letter -->
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the letter">
+      <div class="envelope__back"></div>
+
+      <!-- the letter slides up out of the envelope -->
+      <div class="letter" id="letter">
+        <div class="letter__content">
+          <h1 class="letter__title">Hello World</h1>
+          <div class="letter__divider">✦</div>
+          <p class="letter__body">
+            Thank you for opening this little letter.
+            May your day be calm, your mind be quiet,
+            and your heart be light.
+          </p>
+          <p class="letter__sign">— with warmth</p>
+        </div>
+      </div>
+
+      <div class="envelope__front"></div>
+      <div class="envelope__flap" id="flap"></div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

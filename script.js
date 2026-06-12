@@ -1,6 +1,6 @@
 // =========================================================
-//  A Letter For You — interaction
-//  Open the envelope, then reveal the centered reading card.
+//  Một lá thư cho Vịt Thơm — interaction
+//  Mở phong thư, rồi nhẹ nhàng hiện lá thư ở chính giữa.
 // =========================================================
 
 const envelope = document.getElementById("envelope");
@@ -17,8 +17,8 @@ function openLetter() {
 
   envelope.classList.add("is-open");
 
-  // Let the envelope finish opening before the card glides in.
-  const delay = reduceMotion ? 0 : 760;
+  // Let the flap open slowly and gently before the card glides in.
+  const delay = reduceMotion ? 0 : 1150;
   setTimeout(() => {
     reader.classList.add("is-active");
     reader.setAttribute("aria-hidden", "false");
@@ -42,21 +42,21 @@ document.addEventListener("keydown", (e) => {
 });
 
 // =========================================================
-//  Gentle drifting dust motes for a calm, dreamy backdrop
+//  Floating dust / light particles — soft and slow
 // =========================================================
-(function spawnMotes() {
-  const layer = document.getElementById("motes");
+(function spawnParticles() {
+  const layer = document.getElementById("particles");
   if (!layer || reduceMotion) return;
 
-  const COUNT = 22;
+  const COUNT = 28;
   for (let i = 0; i < COUNT; i++) {
-    const m = document.createElement("span");
-    m.className = "mote";
-    const size = 2 + Math.random() * 5;
-    m.style.width = m.style.height = size + "px";
-    m.style.left = Math.random() * 100 + "vw";
-    m.style.animationDuration = 14 + Math.random() * 16 + "s";
-    m.style.animationDelay = -Math.random() * 30 + "s";
-    layer.appendChild(m);
+    const p = document.createElement("span");
+    p.className = "particle";
+    const size = 2 + Math.random() * 6;
+    p.style.width = p.style.height = size + "px";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = 20 + Math.random() * 22 + "s"; // slow drift
+    p.style.animationDelay = -Math.random() * 40 + "s";
+    layer.appendChild(p);
   }
 })();

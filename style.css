@@ -142,9 +142,11 @@ body {
   color: var(--ink);
 }
 .envelope__cta {
-  font-size: 0.72rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  max-width: 30ch;
+  line-height: 1.6;
+  text-align: center;
   color: var(--ink-soft);
   animation: breathe 4s ease-in-out infinite;
 }
